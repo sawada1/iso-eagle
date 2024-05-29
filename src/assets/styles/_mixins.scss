@@ -1,0 +1,10 @@
+
+
+@mixin line-h($color){
+ content: '';
+ top: 100%;
+ position: absolute;
+ width: 92px;
+ height: 3px;
+ background-color: $color;
+}

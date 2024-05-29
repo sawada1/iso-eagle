@@ -1,27 +1,64 @@
 <template>
-   
-   <div>
-    <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <!-- <HelloWorld msg="You did it!" /> -->
+  <div class="">
+    <header class="navbar-container">
+      <v-container class="">
+        <div class="main-nav">
+          <img src="../assets/images/nav-logo.png" alt="">
+          <nav :class="{ 'active': navActive }">
+            <i @click="navActive = !navActive" class="fa-solid fa-xmark close-icon"></i>
+            <RouterLink to="/">Home</RouterLink>
+            <RouterLink to="/about">About</RouterLink>
+            <RouterLink to="/about">services</RouterLink>
+            <RouterLink to="/about">product</RouterLink>
+            <RouterLink to="/about">videos</RouterLink>
+            <RouterLink to="/about">contact</RouterLink>
+            <div class="search-container">
+              <i v-if="!searchActive" @click="searchActive = !searchActive" class="fa-solid fa-magnifying-glass"></i>
+              <i v-if="searchActive" @click="searchActive = !searchActive" class="fa-solid fa-xmark"></i>
+              <div class="search-input" :class="{ 'active': searchActive }">
+                <input type="text" placeholder="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+            <div class="lang">
+              <select name="" id="">
+                <option value="en">english</option>
+                <option value="ar">arabic</option>
+              </select>
+              <i class="fa-solid fa-chevron-down"></i>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-   </div>
+            </div>
+          </nav>
+
+          <div class="icons d-none d-xl-flex d-lg-flex d-md-flex">
+            <div class="icon">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="icon">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div class="icon">
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+          </div>
+
+          <i @click="navActive = !navActive" class="fa-solid fa-bars-staggered open-bar-nav"></i>
+
+        </div>
+      </v-container>
+    </header>
+  </div>
 
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import { ref , onMounted , computed } from 'vue'
+let searchActive = ref(false);
+let navActive = ref(false);
 </script>
 
-<<style lang="scss">
+<style lang="scss">
     
 </style>
