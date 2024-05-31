@@ -13,7 +13,7 @@
             </div>
             <v-container>
                 <div class="brands-container  m-top">
-                    <v-row>
+                    <v-row class="">
                         <v-col class="my-4" cols="6" xl="2" lg="2" md="4">
                             <img src="../assets/images/brand1.svg" alt="brand1" loading="lazy">
                         </v-col>

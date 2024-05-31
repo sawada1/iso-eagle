@@ -59,3 +59,21 @@ a {
         background-color: $primary;
     }
 }
+
+
+
+.up-page{
+    position: fixed;
+    top: 90%;
+    right: 40px;
+    cursor: pointer;
+    transition: 0.5s all;
+    transform: translateX(300px);
+    z-index: 11111;
+    &.active{
+        transform: translateX(0);
+    }
+    img{
+        width: 40px;
+    }
+}

@@ -57,29 +57,31 @@
                             <div class="products-cards mt-10">
                                 <v-row>
                                     <v-col v-for="item , index in filterdProducts" cols="12" xl="6" lg="6">
-                                    <router-link :to="{ name:'product' , params:{id: index + 1}}" >
-                                        <div class="product-card">
-                                            <div class="image">
-                                                <img :src="item.image" alt="">
-                                            </div>
-                                            <div class="text-container p-3">
-                                                <div class="d-flex text-center align-items-center flex-column">
-                                                    <h6> {{ item.title }} </h6>
-                                                    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                                                        diam
-                                                        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-                                                        erat
-                                                        .</p>
-
+                                        <router-link :to="{ name:'product' , params:{id: index + 1}}">
+                                            <div class="product-card">
+                                                <div class="image">
+                                                    <img src="../assets/images/product1.png" alt="">
                                                 </div>
-                                                <div class="d-flex justify-content-end">
-                                                    <span> view more </span>
+                                                <div class="text-container p-3">
+                                                    <div class="d-flex text-center align-items-center flex-column">
+                                                        <h6> {{ item.title }} </h6>
+                                                        <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                            sed
+                                                            diam
+                                                            nonummy nibh euismod tincidunt ut laoreet dolore magna
+                                                            aliquam
+                                                            erat
+                                                            .</p>
 
+                                                    </div>
+                                                    <div class="d-flex justify-content-end">
+                                                        <span> view more </span>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    
-                                    </router-link>
+
+                                        </router-link>
 
                                     </v-col>
                                 </v-row>

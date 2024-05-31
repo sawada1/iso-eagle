@@ -276,7 +276,7 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
             <img class="w-100" src="../assets/images/what2.png">
           </v-col>
           <v-col cols="12" xl="8" lg="8" class="" style="overflow: hidden;">
-            <div class="testi w-100 ">
+            <div class="testi w-100 px-3">
               <h3> What Our Client Says </h3>
               <swiper :loop="true" :spaceBetween="70" :thumbs="{ swiper: thumbsSwiper }" :modules="modules"
                 class="testimonal1 w-100">

@@ -4,7 +4,7 @@
             <div class="footer-container">
                 <v-container>
                     <v-row>
-                        <v-col col="12" xl="4" lg="4">
+                        <v-col cols="12" xl="4" lg="4">
                             <div class="logo-container">
                                 <img src="../assets/images/logo.png" alt="logo" loading="lazy">
                                 <p> Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                         </v-col>
-                        <v-col class="d-flex align-items-center justify-content-center" col="12" xl="4" lg="4">
+                        <v-col class="d-flex align-items-center justify-content-center" cols="12" xl="4" lg="4">
                             <div class="links-container">
                                 <h5>Quick Link</h5>
                                 <div class="links">
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                         </v-col>
-                        <v-col class="d-flex align-items-center justify-content-center" col="12" xl="4" lg="4">
+                        <v-col class="d-flex align-items-center justify-content-center" cols="12" xl="4" lg="4">
                             <div class="links-container contact">
                                 <h5>Contact Us</h5>
                                 <div class="links">

@@ -4,7 +4,9 @@
     <header class="navbar-container">
       <v-container class="">
         <div class="main-nav">
+         <RouterLink to="/">
           <img src="../assets/images/nav-logo.png" alt="">
+         </RouterLink>
           <nav class="mob" :class="{ 'active': navActive }">
             <i @click="navActive = !navActive" class="fa-solid fa-xmark close-icon"></i>
             <RouterLink @click="navActive = !navActive" to="/">Home</RouterLink>

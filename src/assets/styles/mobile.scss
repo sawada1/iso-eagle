@@ -50,7 +50,7 @@
             align-items: center;
         }
         .links-container {
-            text-align: center;
+            // text-align: center;
             h5 {
                 font-size: 18px;
             }
@@ -78,8 +78,11 @@
 // start swipers
 
 @media (max-width: 900px) {
+    .m-top{
+        margin-top: 40px !important;
+    }
     .mySwiper {
-        height: 80vh;
+        height: 70vh;
         .text {
             margin-top: 50px;
             width: auto !important;
@@ -208,6 +211,17 @@
             .item{
                 align-items: center;
             }
+        }
+    }
+
+    .testimonial-container{
+     text-align: center;
+    }
+    .brands-container{
+        .v-col-6{
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
