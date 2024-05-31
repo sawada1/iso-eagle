@@ -5,14 +5,14 @@
       <v-container class="">
         <div class="main-nav">
           <img src="../assets/images/nav-logo.png" alt="">
-          <nav :class="{ 'active': navActive }">
+          <nav class="mob" :class="{ 'active': navActive }">
             <i @click="navActive = !navActive" class="fa-solid fa-xmark close-icon"></i>
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/about">About</RouterLink>
-            <RouterLink to="/about">services</RouterLink>
-            <RouterLink to="/about">product</RouterLink>
-            <RouterLink to="/about">videos</RouterLink>
-            <RouterLink to="/about">contact</RouterLink>
+            <RouterLink @click="navActive = !navActive" to="/">Home</RouterLink>
+            <RouterLink @click="navActive = !navActive" to="/about">About</RouterLink>
+            <RouterLink @click="navActive = !navActive" to="/services">services</RouterLink>
+            <RouterLink @click="navActive = !navActive" to="/products">products</RouterLink>
+            <RouterLink @click="navActive = !navActive" to="/videos">videos</RouterLink>
+            <RouterLink @click="navActive = !navActive" to="/contact">contact</RouterLink>
             <div class="search-container">
               <i v-if="!searchActive" @click="searchActive = !searchActive" class="fa-solid fa-magnifying-glass"></i>
               <i v-if="searchActive" @click="searchActive = !searchActive" class="fa-solid fa-xmark"></i>

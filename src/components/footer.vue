@@ -26,26 +26,26 @@
                             <div class="links-container">
                                 <h5>Quick Link</h5>
                                 <div class="links">
-                                    <div class="link">
+                                    <router-link to="/about" class="link">
                                         <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
                                         <span> About ISO Eagle </span>
-                                    </div>
-                                    <div class="link">
+                                    </router-link>
+                                    <router-link to="/services" class="link">
                                         <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
                                         <span> Our Services </span>
-                                    </div>
-                                    <div class="link">
+                                    </router-link>
+                                    <router-link to="products" class="link">
                                         <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
                                         <span>Our Products</span>
-                                    </div>
-                                    <div class="link">
+                                    </router-link>
+                                    <router-link to="videos" class="link">
                                         <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
                                         <span> Videos</span>
-                                    </div>
-                                    <div class="link">
+                                    </router-link>
+                                    <router-link to="/contact" class="link">
                                         <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
                                         <span> Review Clients </span>
-                                    </div>
+                                    </router-link>
                                 </div>
                             </div>
                         </v-col>

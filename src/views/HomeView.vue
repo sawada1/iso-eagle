@@ -68,7 +68,9 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
           </v-col>
         </v-row>
         <div class="d-flex align-items-center justify-content-center">
+        <router-link to="/brands">
           <button class="Btn mt-16"> view more </button>
+        </router-link>
         </div>
       </div>
     </v-container>
@@ -91,7 +93,9 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
           </p>
         </div>
         <div class="">
+        <router-link to="/about">
           <button class="Btn"> know more </button>
+        </router-link>
         </div>
       </div>
     </div>
@@ -124,7 +128,9 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
                 <img src="../assets/images/icon3.svg" alt="service1" loading="lazy">
                 <span> Freight & Clearance </span>
               </div>
+              <router-link to="/services">
               <button class="Btn primary"> know more </button>
+              </router-link>
             </div>
           </div>
         </v-col>
@@ -220,7 +226,7 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
           <v-col cols="12" xl="4" lg="4" md="6">
             <div class="box video">
               <div class="image">
-                <img src="../assets/images/video2.png" alt="product1" loading="lazy">
+                <img src="../assets/images/video3.png" alt="product1" loading="lazy">
                 <img class="play" src="../assets/images/play.svg" alt="">
               </div>
               <span> Lorem ipsum dolor sit amet </span>
@@ -229,7 +235,7 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
           <v-col cols="12" xl="4" lg="4" md="6">
             <div class="box video">
               <div class="image">
-                <img src="../assets/images/video2.png" alt="product1" loading="lazy">
+                <img src="../assets/images/video4.png" alt="product1" loading="lazy">
                 <img class="play" src="../assets/images/play.svg" alt="">
               </div>
               <span> Lorem ipsum dolor sit amet </span>
@@ -238,7 +244,7 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
           <v-col cols="12" xl="4" lg="4" md="6">
             <div class="box video">
               <div class="image">
-                <img src="../assets/images/video2.png" alt="product1" loading="lazy">
+                <img src="../assets/images/video5.png" alt="product1" loading="lazy">
                 <img class="play" src="../assets/images/play.svg" alt="">
               </div>
               <span> Lorem ipsum dolor sit amet </span>
@@ -247,7 +253,7 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
           <v-col cols="12" xl="4" lg="4" md="6">
             <div class="box video">
               <div class="image">
-                <img src="../assets/images/video2.png" alt="product1" loading="lazy">
+                <img src="../assets/images/video6.png" alt="product1" loading="lazy">
                 <img class="play" src="../assets/images/play.svg" alt="">
               </div>
               <span> Lorem ipsum dolor sit amet </span>
@@ -256,7 +262,9 @@ let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
 
         </v-row>
         <div class="d-flex align-items-center justify-content-center">
+        <router-link to="/videos">
           <button class="Btn mt-16"> view more </button>
+        </router-link>
         </div>
       </v-container>
     </div>
