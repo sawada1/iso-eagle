@@ -1,7 +1,11 @@
-import './assets/styles/main.scss';
+
+
+// import './assets/styles/main.scss';
+// import './assets/rtl/main-rtl.scss';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import {i18n} from './plugins/i18n.js'
 
 import App from './App.vue';
 import router from './router';
@@ -22,5 +26,6 @@ const vuetify = createVuetify({
   directives,
 });
 app.use(vuetify);
+app.use(i18n);
 
 app.mount('#app')

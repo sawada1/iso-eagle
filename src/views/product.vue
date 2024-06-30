@@ -4,9 +4,9 @@
             <div class="background-container">
                 <div class="text">
                     <div class="head-text">
-                        <span> Home </span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <span> Products </span>
+                        <span> {{ $t('home') }} </span>
+                        <i class="fa-solid fa-chevron-right arrow-rtl"></i>
+                        <span> {{ $t('products') }} </span>
                     </div>
                     <h3> Health, Safety & Environment (HSE) </h3>
                 </div>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="system-container">
                     <div class="title">
-                        <span> Conventional System </span>
+                        <span> {{ $t('ConventionalSystem') }} </span>
                     </div>
                     <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
                         tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="features">
-                    <h4 class="text-center mb-8"> Features </h4>
+                    <h4 class="text-center mb-8"> {{ $t('Features') }} </h4>
                     <v-row>
                         <v-col cols="12" xl="4" lg="4" md="4">
                             <div class="item">
@@ -68,7 +68,7 @@
 
                 <div class="system-container mt-16">
                     <div class="title">
-                        <span> Addressable system </span>
+                        <span> {{ $t('Addressablesystem') }} </span>
                     </div>
                     <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
                         tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
@@ -79,7 +79,7 @@
 
 
                 <div class="features mt-10">
-                    <h4 class="text-center mb-8"> Features </h4>
+                    <h4 class="text-center mb-8"> {{ $t('Features') }} </h4>
                     <v-row>
                         <v-col v-for="i in 6" cols="12" xl="4" lg="4" md="4">
                             <div class="item">

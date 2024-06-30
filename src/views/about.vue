@@ -4,11 +4,11 @@
             <div class="background-container">
                 <div class="text">
                     <div class="head-text">
-                        <span> Home </span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <span> About </span>
+                        <span> {{ $t('home') }} </span>
+                        <i class="fa-solid fa-chevron-right arrow-rtl"></i>
+                        <span> {{ $t('about') }} </span>
                     </div>
-                    <h3> About ISO Eagle </h3>
+                    <h3> {{ $t('AboutISOEagle') }} </h3>
                     <p class="mb-10 mt-10">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
                         nibh euismod tincidunt
                         ut laoreet dolore magna aliquam erat volutpat.</p>
@@ -19,7 +19,7 @@
             <v-container>
                 <div class="our-div mt-10">
                     <div class="d-flex justify-content-center">
-                        <h3> Our vision </h3>
+                        <h3> {{ $t('Ourvision') }} </h3>
 
                     </div>
                     <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
@@ -31,7 +31,7 @@
                 </div>
                 <div class="our-div mt-16">
                     <div class="d-flex justify-content-center">
-                        <h3> Our sectors </h3>
+                        <h3> {{ $t('Oursectors') }} </h3>
 
                     </div>
                     <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod

@@ -10,48 +10,53 @@
                                 <p> Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur
                                     lacinia mollis </p>
                                 <div class="icons">
-                                    <div class="icon">
+                                    <a v-if="general" :href="general.facebook_url" target="_blank" class="icon">
                                         <i class="fa-brands fa-facebook-f"></i>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fa-brands fa-facebook-f"></i>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fa-brands fa-facebook-f"></i>
-                                    </div>
+                                    </a>
+                                    <a v-if="general" :href="general.linkedin_url" target="_blank" class="icon">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                    <a v-if="general" :href="general.youtube_url" target="_blank" class="icon">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
                                 </div>
                             </div>
                         </v-col>
                         <v-col class="d-flex align-items-center justify-content-center" cols="12" xl="4" lg="4">
                             <div class="links-container">
-                                <h5>Quick Link</h5>
+                                <h5>{{ $t('QuickLink') }}</h5>
                                 <div class="links">
                                     <router-link to="/about" class="link">
-                                        <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
-                                        <span> About ISO Eagle </span>
+                                        <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
+                                            loading="lazy">
+                                        <span> {{ $t('AboutISOEagle') }} </span>
                                     </router-link>
                                     <router-link to="/services" class="link">
-                                        <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
-                                        <span> Our Services </span>
+                                        <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
+                                            loading="lazy">
+                                        <span> {{ $t('OurServices') }} </span>
                                     </router-link>
                                     <router-link to="products" class="link">
-                                        <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
-                                        <span>Our Products</span>
+                                        <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
+                                            loading="lazy">
+                                        <span>{{ $t('OurProducts') }}</span>
                                     </router-link>
                                     <router-link to="videos" class="link">
-                                        <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
-                                        <span> Videos</span>
+                                        <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
+                                            loading="lazy">
+                                        <span> {{ $t('videos') }} </span>
                                     </router-link>
                                     <router-link to="/contact" class="link">
-                                        <img src="../assets/images/arrow2.svg" alt="arrow" loading="lazy">
-                                        <span> Review Clients </span>
+                                        <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
+                                            loading="lazy">
+                                        <span> {{ $t('ReviewClients') }} </span>
                                     </router-link>
                                 </div>
                             </div>
                         </v-col>
                         <v-col class="d-flex align-items-center justify-content-center" cols="12" xl="4" lg="4">
                             <div class="links-container contact">
-                                <h5>Contact Us</h5>
+                                <h5>{{ $t('ContactUs') }}</h5>
                                 <div class="links">
                                     <div class="link">
 
@@ -59,11 +64,11 @@
                                     </div>
                                     <div class="link">
                                         <i class="fa-regular fa-clock"></i>
-                                        <span> Opening Hours: Mon - Sat: 10.00 AM - 4.00 PM </span>
+                                        <span> {{ $t('OpeningHours') }}: Mon - Sat: 10.00 AM - 4.00 PM </span>
                                     </div>
                                     <div class="link">
                                         <i class="fa-solid fa-phone"></i>
-                                        <span>Phone Call: 208 7898 809 - 207 997 7696 </span>
+                                        <span>{{ $t('PhoneCall') }}: 208 7898 809 - 207 997 7696 </span>
                                     </div>
                                 </div>
                             </div>
@@ -72,10 +77,10 @@
                     <div class="line"></div>
                     <div
                         class="foot d-flex align-items-center text-center flex-column flex-xl-row flex-lg-row  justify-content-between">
-                        <p>Copyright © All Rights Reserved.  Powered by ISO Eagle</p>
+                        <p> {{ $t('foot') }} ISO Eagle </p>
                         <div class="d-flex align-items-center gap-4">
-                            <span class="active"> Terms & Condition </span>
-                            <span class=""> Privacy Policy </span>
+                            <span class="active"> {{ $t('terms') }} </span>
+                            <span class=""> {{ $t('policy') }} </span>
                         </div>
                     </div>
                 </v-container>
@@ -85,10 +90,9 @@
 </template>
 
 <script setup>
+let props = defineProps(["general"]);
+
 
 </script>
 
-<style lang="scss" scoped>
-
-
-</style>
+<style lang="scss" scoped></style>

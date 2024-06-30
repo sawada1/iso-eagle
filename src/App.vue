@@ -1,9 +1,27 @@
 <script setup>
+import axios from 'axios';
 import { RouterLink, RouterView } from 'vue-router';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted , onBeforeMount , computed} from 'vue';
 import navbar from './components/navbar.vue';
 import Footer from './components/footer.vue';
+import network from './components/network.vue';
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n();
+import { Vue3Lottie } from "vue3-lottie";
 
+import {getUrl} from './composables/url.js';
+let general = ref();
+const getGeneral = async()=>{
+  let result = await axios.get(`${getUrl()}/general`,{
+    headers:{
+      "Content-Language": `${locale.value}`,
+    }
+  });
+  if(result.status == 200){
+     general.value = result.data.data;
+  }
+}
+getGeneral();
 let upActive = ref(false);
 
 window.addEventListener("scroll", function () {
@@ -13,6 +31,14 @@ window.addEventListener("scroll", function () {
     upActive.value = false;
   }
 });
+
+let checkInt = ref(false);
+window.addEventListener("online", function () {
+    checkInt.value = false;
+  });
+  window.addEventListener("offline", function () {
+    checkInt.value = true;
+  });
 
 const upToPage = () => {
   window.scrollTo({
@@ -24,18 +50,28 @@ const upToPage = () => {
 
 <template>
   <div>
-    <navbar />
+    <navbar :general="general" />
     <div @click="upToPage()" class="up-page" :class="{ 'active': upActive }">
       <img src="./assets/images/up.svg" alt="">
     </div>
     <RouterView />
-    <Footer />
+    <Footer :general="general" />
+    <network v-if="checkInt" />
 
   </div>
 
 </template>
 
-<style scoped>
+<style lang="scss">
 
+html[dir="rtl"] .v-container{
+  direction: rtl !important;
+}
+html[dir="ltr"] .v-container{
+  direction: ltr !important;
+}
+html[dir="rtl"] .arrow-rtl{
+  transform: scaleX(-1);
+}
 
 </style>

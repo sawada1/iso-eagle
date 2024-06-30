@@ -4,7 +4,7 @@
     .navbar-container {
         nav {
             position: fixed;
-            background-color: $black2;
+            background-color: #373737;
             width: 100%;
             flex-direction: column;
             align-items: center;
@@ -131,9 +131,9 @@
                 .service{
                     justify-content: center;
                     flex-direction: column;
-                    span{
-                        // width: 70%;
-                    }
+                    // span{
+                    //     // width: 70%;
+                    // }
                 }
             }
         }

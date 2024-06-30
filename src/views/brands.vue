@@ -4,11 +4,11 @@
             <div class="background-container">
                 <div class="text">
                     <div class="head-text">
-                        <span> Home </span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <span> Brands </span>
+                        <span> {{ $t('home') }} </span>
+                        <i class="fa-solid fa-chevron-right arrow-rtl"></i>
+                        <span> {{ $t('brands') }} </span>
                     </div>
-                    <h3> Brands </h3>
+                    <h3> {{ $t('brands') }} </h3>
                 </div>
             </div>
             <v-container>

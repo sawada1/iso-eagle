@@ -4,11 +4,11 @@
             <div class="background-container">
                 <div class="text">
                     <div class="head-text">
-                        <span> Home </span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <span> Services </span>
+                        <span> {{ $t('home') }} </span>
+                        <i class="fa-solid fa-chevron-right arrow-rtl"></i>
+                        <span> {{ $t('services') }} </span>
                     </div>
-                    <h3> All Our Products </h3>
+                    <h3> {{ $t('AllOurProducts') }} </h3>
                 </div>
             </div>
 
@@ -19,22 +19,22 @@
                             <div class="filters">
                                 <div class="filter line d-flex align-items-center gap-3">
                                     <img class="" src="../assets/images/filter.svg" alt="">
-                                    <h6 class=" m-0"> Filters </h6>
+                                    <h6 class=" m-0"> {{ $t('Filters') }} </h6>
                                 </div>
                                 <div
                                     class="d-flex filter align-items-center flex-column mt-5 justify-content-center gap-3">
                                     <div class="d-flex align-items-center justify-content-center gap-3">
                                         <img class="" src="../assets/images/sort.svg" alt="">
-                                        <h6 class=" m-0"> Sort by </h6>
+                                        <h6 class=" m-0"> {{ $t('Sortby') }} </h6>
                                     </div>
                                     <div class="d-flex align-items-center gap-4">
                                         <div @click="sortActive = 1" class="sortBy"
                                             :class="{ 'active': sortActive  == 1}">
-                                            <span>Recent </span>
+                                            <span> {{ $t('Recent') }} </span>
                                         </div>
                                         <div @click="sortActive = 2" class="sortBy"
                                             :class="{ 'active': sortActive  == 2}">
-                                            <span>Trending </span>
+                                            <span> {{ $t('Trending') }} </span>
                                         </div>
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
 
                                                     </div>
                                                     <div class="d-flex justify-content-end">
-                                                        <span> view more </span>
+                                                        <span> {{ $t('viewmore') }} </span>
 
                                                     </div>
                                                 </div>

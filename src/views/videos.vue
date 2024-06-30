@@ -4,11 +4,11 @@
             <div class="background-container">
                 <div class="text">
                     <div class="head-text">
-                        <span> Home </span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <span> videos </span>
+                        <span> {{ $t('home') }} </span>
+                        <i class="fa-solid fa-chevron-right arrow-rtl"></i>
+                        <span> {{ $t('videos') }} </span>
                     </div>
-                    <h3> videos </h3>
+                    <h3> {{ $t('videos') }} </h3>
                 </div>
             </div>
 
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="videos-home page">
-                    <h3 class=""> Videos </h3>
+                    <h3 class=""> {{ $t('videos') }} </h3>
                     <v-row>
                         <v-col cols="12" xl="4" lg="4" md="6">
                             <div class="box video">
@@ -138,13 +138,13 @@
                     </v-row>
                     <div class="d-flex align-items-center justify-content-center">
                         <div class="pagination">
-                            <i @click="backPag()" class="fa-solid fa-chevron-left"></i>
+                            <i @click="backPag()" class="fa-solid fa-chevron-left arrow-rtl"></i>
                             <div class="nums">
                                 <div class="num" v-for="i , index in 3" @click="paginate = index + 1" :class="{ 'active': paginate == index + 1 }"><span>{{ index + 1
                                         }}</span></div>
                                         <!-- <span>...</span> -->
                             </div>
-                            <i @click="addPag()" class="fa-solid fa-chevron-right"></i>
+                            <i @click="addPag()" class="fa-solid fa-chevron-right arrow-rtl"></i>
                         </div>
                     </div>
 

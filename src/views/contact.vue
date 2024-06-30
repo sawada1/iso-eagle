@@ -4,11 +4,11 @@
             <div class="background-container">
                 <div class="text">
                     <div class="head-text">
-                        <span> Home </span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                        <span> Contact </span>
+                        <span> {{ $t('home') }} </span>
+                        <i class="fa-solid fa-chevron-right arrow-rtl"></i>
+                        <span> {{ $t('contact') }} </span>
                     </div>
-                    <h3> Contact Us </h3>
+                    <h3> {{ $t('ContactUs') }} </h3>
                 </div>
             </div>
 
@@ -17,8 +17,8 @@
                     <v-row>
                         <v-col cols="12" xl="6" lg="6">
                             <div class="main-text">
-                                <h4> Feel free to contact us. </h4>
-                                <h4> We’d love to hear from you.
+                                <h4> {{ $t('contact1') }} </h4>
+                                <h4> {{ $t('contact2') }}
                                 </h4>
                                 <p class="mt-8">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast
                                     ehicula leo, vel
@@ -26,7 +26,7 @@
 
                                 <div class="details d-flex flex-column gap-4 mt-16">
                                     <div class="item">
-                                        <h6> Call Us </h6>
+                                        <h6> {{ $t('CallUs') }} </h6>
                                         <div class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-phone"></i>
                                             <span> 208 7898 809 - 207 997 7696
@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <h6> Send Us An E-mail </h6>
+                                        <h6> {{ $t('contact3') }} </h6>
                                         <div class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-envelope"></i>
                                             <span> iso.procurement@gmail.com
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <h6> Call Us </h6>
+                                        <h6> {{ $t('CallUs') }} </h6>
                                         <div class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-location-crosshairs"></i>
                                             <span> 5, off Mohamed Farid Street, Cairo
@@ -56,7 +56,7 @@
 
                         <v-col cols="12" xl="6" lg="6">
                             <div class="form">
-                                <h5> Enter Details in This Form: </h5>
+                                <h5> {{ $t('contactForm') }}: </h5>
                                 <p> Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel
                                     efficitur felis ultrices non. </p>
 
@@ -64,43 +64,43 @@
                                     <v-row>
                                         <v-col cols="6">
                                             <div class="input">
-                                                <label for=""> Full Name </label>
+                                                <label for=""> {{ $t('FullName') }} </label>
                                                 <input type="text" placeholder="Robot Fox">
                                             </div>
                                         </v-col>
                                         <v-col cols="6">
                                             <div class="input">
-                                                <label for=""> Email Address </label>
+                                                <label for=""> {{ $t('Email') }} </label>
                                                 <input type="email" placeholder="Robot Fox">
                                             </div>
                                         </v-col>
                                         <v-col cols="12">
                                             <div class="input">
-                                                <label for=""> Full Address </label>
+                                                <label for=""> {{ $t('FullAddress') }} </label>
                                                 <input type="text" placeholder="No of Street, City">
                                             </div>
                                         </v-col>
                                         <v-col cols="6">
                                             <div class="input">
-                                                <label for=""> Number Phone </label>
+                                                <label for=""> {{ $t('NumberPhone') }} </label>
                                                 <input type="number" placeholder="+123 567 909">
                                             </div>
                                         </v-col>
                                         <v-col cols="6">
                                             <div class="input">
-                                                <label for=""> Service Type </label>
+                                                <label for=""> {{ $t('ServiceType') }} </label>
                                                 <input type="text" placeholder="Services">
                                             </div>
                                         </v-col>
                                         <v-col cols="12">
                                             <div class="input">
-                                                <label for=""> Message </label>
+                                                <label for=""> {{ $t('Message') }} </label>
                                                 <textarea name="" placeholder="Write Message" id="" cols="30"
                                                     rows="10"></textarea>
                                             </div>
                                         </v-col>
                                     </v-row>
-                                    <button> Submit </button>
+                                    <button> {{ $t('Submit') }} </button>
                                 </div>
                             </div>
                         </v-col>
