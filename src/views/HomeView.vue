@@ -62,7 +62,7 @@ html[dir="ltr"] .swiper{
     <!-- {{ dirSwiper }} -->
       <div v-if="general">
    
-      <swiperHome />
+      <swiperHome :images="general.slider.images" />
         <v-container>
           <div class="brands-container p-4 m-top">
             <v-row >
@@ -145,61 +145,10 @@ html[dir="ltr"] .swiper{
           <v-container>
             <h3 class=""> {{ $t('OurProducts') }} </h3>
             <v-row>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon1.svg" alt="product1" loading="lazy">
-                  <span> Health, Safety and Environment
-                    (HSE) </span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon2.svg" alt="product1" loading="lazy">
-                  <span> Industrial Tools & Machinery
-                    Equipment </span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon3.svg" alt="product1" loading="lazy">
-                  <span> Piping Package & Valves </span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon4.svg" alt="product1" loading="lazy">
-                  <span> Monolithic Isolation Joints </span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon5.svg" alt="product1" loading="lazy">
-                  <span> Process Control Instruments </span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon6.svg" alt="product1" loading="lazy">
-                  <span> Measuring, Sampling and
-                    Inspecting Instruments</span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon7.svg" alt="product1" loading="lazy">
-                  <span>Welding & Cutting Technology </span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon8.svg" alt="product1" loading="lazy">
-                  <span> Rescue & Lifting Equipment </span>
-                </div>
-              </v-col>
-              <v-col cols="12" xl="4" lg="4" md="6">
-                <div class="box">
-                  <img src="../assets/images/product-icon9.svg" alt="product1" loading="lazy">
-                  <span>Cathodic Protection Materials </span>
+              <v-col v-for="item in general.categories" cols="12" xl="4" lg="4" md="6">
+                <div class="box product">
+                  <img :src="item.icon" alt="product1" loading="lazy">
+                  <span> {{ item.name }} </span>
                 </div>
               </v-col>
             </v-row>
@@ -236,7 +185,9 @@ html[dir="ltr"] .swiper{
               
         </v-toolbar>
         <div class="w-100 h-100">
-          <iframe width="100%" height="100%" :src="item.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+          <div class="w-100 h-100" v-html="item.link"></div>    
+          <!-- <iframe width="100%" height="100%" :src="item.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>      -->
+          </div>
       </v-card>
     </v-dialog>
                

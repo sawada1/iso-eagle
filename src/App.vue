@@ -69,6 +69,14 @@ const upToPage = () => {
 // .ltr{
 //    @import './assets/styles/main.scss';
 //  }
+
+.v-overlay-container{
+    iframe{
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
 html[dir="rtl"] .v-container{
   direction: rtl !important;
 }

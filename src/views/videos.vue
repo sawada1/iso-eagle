@@ -25,7 +25,7 @@
 
                 <div class="videos-home page">
                     <h3 class=""> {{ $t('videos') }} </h3>
-                    <v-row>
+                    <v-row v-if="!pendingBtn">
                         <v-col v-for="item , index in videos" :key="index" cols="12" xl="4" lg="4" md="6">
                 <v-dialog
       v-model="dialog[index]"
@@ -52,22 +52,36 @@
           </div>
               
         </v-toolbar>
-        <div class="w-100 h-100">
-          <iframe width="100%" height="100%" :src="item.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
+        <div class="w-100 h-100" >
+          <div class="w-100 h-100" v-html="item.link"></div>
+          <!-- <iframe width="100%" height="100%" :src="item.link" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>      -->
+        
+        </div>
       </v-card>
     </v-dialog>
                
               </v-col>
                     </v-row>
-                    <div class="d-flex align-items-center justify-content-center">
+                    <div class="w-100 d-flex align-items-center justify-content-center mt-10">
+                                    <v-progress-circular v-if="pendingBtn" color="#FFDD00" indeterminate :size="55" :width="4"></v-progress-circular>
+                                </div>
+                               
+                                <div class="d-flex align-items-center justify-content-center">
                         <div class="pagination">
-                            <i @click="backPag()" class="fa-solid fa-chevron-left arrow-rtl"></i>
-                            <div class="nums">
-                                <div class="num" v-for="i , index in 3" @click="paginate = index + 1" :class="{ 'active': paginate == index + 1 }"><span>{{ index + 1
-                                        }}</span></div>
+                            <button @click="backPag()">
+                                <i  class="fa-solid fa-chevron-left arrow-rtl"></i>
+                            </button>
+                            <div class="nums" v-if="pageCount">
+                                <div class="num" v-for="i , index in pageCount" @click="page = index + 1 , pendingBtn = true ,  getProducts()" :class="{ 'active': page == index + 1 }">
+                                    
+                                    <span>{{ index + 1}}</span>
+                                
+                                </div>
                                         <!-- <span>...</span> -->
                             </div>
-                            <i @click="addPag()" class="fa-solid fa-chevron-right arrow-rtl"></i>
+                            <button @click="addPag()">
+                                <i  class="fa-solid fa-chevron-right arrow-rtl"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -82,7 +96,7 @@
 
 <script setup>
 import loader from '../components/loader.vue';
-import { ref , watch , onMounted } from 'vue';
+import { ref , watch , onMounted , computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import axios from 'axios';
 import {getUrl} from '../composables/url.js';
@@ -93,6 +107,10 @@ let lengthItems = ref(3);
 let paginate = ref(1);
 let pending = ref(false);
 let dialog = ref();
+let total = ref();
+let per_page = ref();
+let page = ref(1);
+let pendingBtn = ref(false);
 let videos = ref([]);
 const getVideos = async()=>{
   pending.value = true;
@@ -103,7 +121,10 @@ const getVideos = async()=>{
   });
   if(result.status == 200){
     pending.value = false;
-    videos.value = result.data.data;
+     videos.value = result.data.data;
+        per_page.value = result.data.meta.per_page;
+        total.value = result.data.meta.total;
+        pendingBtn.value = false;
      dialog.value = Array(videos.value.length).fill(false);
   }
 }
@@ -117,16 +138,28 @@ const closeDialog = (index) => {
   dialog.value[index] = false;
 };
 
-const addPag = () => {
-    if (paginate.value < lengthItems.value) {
-        paginate.value++;
+const pageCount = computed(() => {
+  return Math.ceil(total.value / per_page.value);
+});
+
+
+const addPag = async () => {
+    if (page.value < pageCount.value) {
+        page.value++;
+        pendingBtn.value = true;
+        await getProducts();
+        
     }
 }
-const backPag = () => {
-    if (paginate.value > 1) {
-        paginate.value--;
+const backPag = async () => {
+    if (page.value > 1) {
+        page.value--;
+        pendingBtn.value = true;
+    await getProducts();
+
     }
 }
+
 
 watch(()=> locale.value , (lang)=>{
     getVideos();

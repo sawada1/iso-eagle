@@ -6,17 +6,11 @@
     }" :pagination="{
           clickable: true,
         }" :modules="modules" class="mySwiper">
-          <swiper-slide>
-            <img src="../assets/images/hero1.png" alt="hero1" loading="lazy">
-            <!-- <div class="text">
-              <h3>Security of <br> your industrial investments </h3>
-              <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
-                hendrerit. </p>
-            </div> -->
+          <swiper-slide v-for="item in images">
+            <img :src="item" alt="hero1" loading="lazy">
+  
           </swiper-slide>
-          <swiper-slide>
+          <!-- <swiper-slide>
             <img src="../assets/images/hero2.png" alt="hero2" loading="lazy">
           </swiper-slide>
           <swiper-slide>
@@ -24,7 +18,7 @@
           </swiper-slide>
           <swiper-slide>
             <img src="../assets/images/hero4.png" alt="hero4" loading="lazy">
-          </swiper-slide>
+          </swiper-slide> -->
         </swiper>
     </div>
 </template>
@@ -42,6 +36,7 @@ import 'swiper/css';
 import { computed, ref , watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 
+let props = defineProps(["images"])
 const thumbsSwiper = ref(null);
 
 

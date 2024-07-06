@@ -9,7 +9,7 @@
                                 <img src="../assets/images/logo.png" alt="logo" loading="lazy">
                                 <p> Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur
                                     lacinia mollis </p>
-                                <div class="icons">
+                                <div class="icons mt-7">
                                     <a v-if="general" :href="general.facebook_url" target="_blank" class="icon">
                                         <i class="fa-brands fa-facebook-f"></i>
                                     </a>
@@ -57,10 +57,10 @@
                         <v-col class="d-flex align-items-center justify-content-center" cols="12" xl="4" lg="4">
                             <div class="links-container contact">
                                 <h5>{{ $t('ContactUs') }}</h5>
-                                <div class="links">
+                                <div v-if="general" class="links">
                                     <div class="link">
 
-                                        <span> 5, off Mohamed Farid Street, Cairo </span>
+                                        <span> {{ general.address }} </span>
                                     </div>
                                     <div class="link">
                                         <i class="fa-regular fa-clock"></i>
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="link">
                                         <i class="fa-solid fa-phone"></i>
-                                        <span>{{ $t('PhoneCall') }}: 208 7898 809 - 207 997 7696 </span>
+                                        <span>{{ $t('PhoneCall') }}: {{ general.phone }} </span>
                                     </div>
                                 </div>
                             </div>

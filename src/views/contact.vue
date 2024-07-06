@@ -12,24 +12,25 @@
                 </div>
             </div>
 
-            <div class="form-container">
+            <div class="form-container pt   -7">
                 <v-container>
                     <v-row>
-                        <v-col cols="12" xl="6" lg="6">
+                        <v-col v-if="contactData" cols="12" xl="6" lg="6">
                             <div class="main-text">
                                 <h4> {{ $t('contact1') }} </h4>
                                 <h4> {{ $t('contact2') }}
                                 </h4>
-                                <p class="mt-8">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast
+                                <!-- <p class="mt-8">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast
                                     ehicula leo, vel
-                                    efficitur felis ultrices non</p>
+                                    efficitur felis ultrices non</p> -->
 
                                 <div class="details d-flex flex-column gap-4 mt-16">
                                     <div class="item">
                                         <h6> {{ $t('CallUs') }} </h6>
                                         <div class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-phone"></i>
-                                            <span> 208 7898 809 - 207 997 7696
+                                            <span> 
+                                                {{ contactData.phone }}
                                             </span>
                                         </div>
                                     </div>
@@ -37,28 +38,32 @@
                                         <h6> {{ $t('contact3') }} </h6>
                                         <div class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-envelope"></i>
-                                            <span> iso.procurement@gmail.com
+                                            <span> 
+                                                {{ contactData.email }}
                                             </span>
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <h6> {{ $t('CallUs') }} </h6>
+                                        <h6> {{ $t('corp    ') }} </h6>
                                         <div class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-location-crosshairs"></i>
-                                            <span> 5, off Mohamed Farid Street, Cairo
+                                            <span> 
+                                                {{ contactData.address }}
+
                                             </span>
                                         </div>
                                     </div>
-                                    <img src="../assets/images/map.png" class="w-100 mt-5" alt="">
+                                    <div v-html="contactData.location"></div>
+                                    <!-- <img src="../assets/images/map.png" class="w-100 mt-5" alt=""> -->
                                 </div>
                             </div>
                         </v-col>
 
                         <v-col cols="12" xl="6" lg="6">
                             <div class="form">
-                                <h5> {{ $t('contactForm') }}: </h5>
-                                <p> Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel
-                                    efficitur felis ultrices non. </p>
+                                <h5 class="mb-7"> {{ $t('contactForm') }}: </h5>
+                                <!-- <p> Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel
+                                    efficitur felis ultrices non. </p> -->
 
                                 <div class="inputs">
                                     <v-row>
@@ -132,6 +137,7 @@
                 </v-container>
             </div>
         </div>
+      <loader v-if="pending" />
     </div>
 </template>
 
@@ -155,6 +161,22 @@ let contactObj = ref({
 
 let errors = ref([]);
 let pendingBtn = ref(false);
+
+let pending = ref(false);
+let contactData = ref([]);
+const getData = async()=>{
+  pending.value = true;
+  let result = await axios.get(`${getUrl()}/contact-us-page`,{
+    headers:{
+      "Content-Language": `${locale.value}`,
+    }
+  });
+  if(result.status == 200){
+    pending.value = false;
+    contactData.value = result.data.data;
+  }
+}
+getData();
 
 const sendContact = async()=>{
      pendingBtn.value = true;

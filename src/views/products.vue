@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="products-cards mt-10">
-                                <v-row>
+                                <v-row v-if="!pendingBtn">
                                     <v-col v-for="item , index in filterdProducts" cols="12" xl="4" lg="4">
                                         <router-link :to="{ name:'product' , params:{id: item.id}}">
                                             <div class="product-card">
@@ -79,6 +79,28 @@
 
                                     </v-col>
                                 </v-row>
+                                <div class="w-100 d-flex align-items-center justify-content-center mt-10">
+                                    <v-progress-circular v-if="pendingBtn" color="#FFDD00" indeterminate :size="55" :width="4"></v-progress-circular>
+                                </div>
+                               
+                                <div class="d-flex align-items-center justify-content-center">
+                        <div class="pagination">
+                            <button @click="backPag()">
+                                <i  class="fa-solid fa-chevron-left arrow-rtl"></i>
+                            </button>
+                            <div class="nums" v-if="pageCount">
+                                <div class="num" v-for="i , index in pageCount" @click="page = index + 1 , pendingBtn = true ,  getProducts()" :class="{ 'active': page == index + 1 }">
+                                    
+                                    <span>{{ index + 1}}</span>
+                                
+                                </div>
+                                        <!-- <span>...</span> -->
+                            </div>
+                            <button @click="addPag()">
+                                <i  class="fa-solid fa-chevron-right arrow-rtl"></i>
+                            </button>
+                        </div>
+                    </div>
                             </div>
                         </div>
                     </v-col>
@@ -99,30 +121,75 @@ import {getUrl} from '../composables/url.js';
 let sortActive = ref(0);
 
 let search = ref('');
-let pending = ref(true);
+let lengthItems = ref(3);
+let paginate = ref(1);
+let pending = ref(false);
+let dialog = ref();
+let total = ref();
+let per_page = ref();
+let page = ref(1);
 let products = ref([]);
+let pendingBtn = ref(false);
 
 const getProducts = async()=>{
     let result = await axios.get(`${getUrl()}/all-products`,{
         headers:{
             "Content-Language": `${locale.value}`
+        },
+        params:{
+            page: page.value
         }
     });
 
     if(result.status >= 200){
         products.value = result.data.data;
-    pending.value = false;
+        per_page.value = result.data.meta.per_page;
+        total.value = result.data.meta.total;
+        pendingBtn.value = false;
+        pending.value = false;
     }
 }
 
 getProducts();
 
 
+const pageCount = computed(() => {
+  return Math.ceil(total.value / per_page.value);
+});
+
+const loadMore = async () => {
+  if (page.value < pageCount.value) {
+    page.value++;
+    pendingBtn.value = true;
+    await getProducts();
+}
+};
+
+const addPag = async () => {
+    if (page.value < pageCount.value) {
+        page.value++;
+        pendingBtn.value = true;
+        await getProducts();
+        
+    }
+}
+const backPag = async () => {
+    if (page.value > 1) {
+        page.value--;
+        pendingBtn.value = true;
+    await getProducts();
+
+    }
+}
+
 const filterdProducts = computed(() => {
     return products.value.filter((ele) => {
         return ele.name.toLowerCase().includes(search.value.toLowerCase());
     });
 });
+
+
+
 watch(()=> locale.value , (lang)=>{
     getProducts();
 })

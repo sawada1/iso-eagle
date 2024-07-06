@@ -1,6 +1,6 @@
 
 
-import './assets/styles/main.scss';
+import './assets/main.scss';
 // import './assets/rtl/main-rtl.scss';
 
 import { createApp } from 'vue'

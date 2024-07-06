@@ -54,7 +54,8 @@ const messages = {
       ForYou:"For You",
       policy:"Privacy Policy",
       searchProduct: "search for product",
-      terms:"Terms & Condition"
+      terms:"Terms & Condition",
+      corp:"Corporate HQ."
 
     },
     ar: {
@@ -71,6 +72,7 @@ const messages = {
         QuickLink: "رابط سريع",
         AboutISOEagle: "عن ISO Eagle",
         OurServices: "خدماتنا",
+        corp:"المقر الرئيسي للشركة.",
         OurProducts: "منتجاتنا",
         ReviewClients: "مراجعة العملاء",
         ContactUs: "اتصل بنا",
