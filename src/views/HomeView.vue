@@ -268,7 +268,7 @@ html[dir="ltr"] .swiper{
           </v-container>
         </div>
     
-        <swiper2 />
+        <!-- <swiper2 /> -->
 
       </div>
       <loader v-if="pending" />

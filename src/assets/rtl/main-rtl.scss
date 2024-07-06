@@ -485,15 +485,18 @@ a {
   background-color: #D9D9D9;
 }
 
-.products-home, .videos-home {
+.products-home,
+.videos-home {
   padding: 73px 0px;
 }
-.products-home h3, .videos-home h3 {
+.products-home h3,
+.videos-home h3 {
   text-align: center;
   margin-bottom: 70px;
   font-size: 35px;
 }
-.products-home .box, .videos-home .box {
+.products-home .box,
+.videos-home .box {
   transition: 0.4s all;
   display: flex;
   flex-direction: column;
@@ -502,23 +505,27 @@ a {
   margin: 20px 0px;
   text-align: center;
 }
-.products-home .box.video, .videos-home .box.video {
+.products-home .box.video,
+.videos-home .box.video {
   width: 100%;
   height: 100%;
   gap: 0px;
   margin: 5px 0px;
 }
-.products-home .box.video .image, .videos-home .box.video .image {
+.products-home .box.video .image,
+.videos-home .box.video .image {
   width: 100%;
   height: 100%;
   position: relative;
 }
-.products-home .box.video .image img, .videos-home .box.video .image img {
+.products-home .box.video .image img,
+.videos-home .box.video .image img {
   width: 100%;
   height: 190px;
   object-fit: cover;
 }
-.products-home .box.video .image .play, .videos-home .box.video .image .play {
+.products-home .box.video .image .play,
+.videos-home .box.video .image .play {
   position: absolute;
   top: 45%;
   right: 50%;
@@ -527,13 +534,15 @@ a {
   width: 50px;
   height: 50px;
 }
-.products-home .box span, .videos-home .box span {
+.products-home .box span,
+.videos-home .box span {
   transition: 0.4s all;
   font-size: 16px;
   font-weight: 500;
   color: #404040;
 }
-.products-home .box:hover span, .videos-home .box:hover span {
+.products-home .box:hover span,
+.videos-home .box:hover span {
   color: #C3A900;
 }
 
@@ -594,7 +603,8 @@ a {
   left: -10px;
   bottom: 0;
 }
-.testimonial-container .testimonal1 .text .test2, .testimonial-container .testimonal1 .text .test1 {
+.testimonial-container .testimonal1 .text .test2,
+.testimonial-container .testimonal1 .text .test1 {
   position: absolute;
   background-color: #fff;
   width: 25px;
@@ -684,7 +694,8 @@ a {
 .services-container .services .lines .line .text {
   z-index: 1;
 }
-.services-container .services .lines .line .text h5, .services-container .services .lines .line .text p {
+.services-container .services .lines .line .text h5,
+.services-container .services .lines .line .text p {
   color: #fff;
 }
 .services-container .services .lines .line .text h5 {
@@ -930,6 +941,7 @@ a {
 }
 .product-page .system-container img {
   object-fit: cover;
+  height: 465px;
 }
 .product-page .features h4 {
   font-size: 27px;
@@ -1137,7 +1149,8 @@ a {
   border: 1px solid #949494;
   border-radius: 10px;
 }
-.contact-page .form-container .form h5, .contact-page .form-container .form p {
+.contact-page .form-container .form h5,
+.contact-page .form-container .form p {
   color: #393939;
 }
 .contact-page .form-container .form .inputs .input {
@@ -1151,7 +1164,8 @@ a {
   font-weight: 500;
   color: #393939;
 }
-.contact-page .form-container .form .inputs .input input, .contact-page .form-container .form .inputs .input textarea {
+.contact-page .form-container .form .inputs .input input,
+.contact-page .form-container .form .inputs .input textarea {
   border: 1px solid #A5A5A5;
   outline: none;
   border-radius: 4px;
@@ -1231,7 +1245,8 @@ a {
   align-items: center;
   gap: 15px;
 }
-.videos-page .pagination i, .videos-page .pagination span {
+.videos-page .pagination i,
+.videos-page .pagination span {
   color: #393939;
   cursor: pointer;
 }

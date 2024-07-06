@@ -51,6 +51,7 @@ const messages = {
       Trending:"Trending",
       best:"The Best Service We Offer",
       ForYou:"For You",
+      searchProduct: "search for product"
 
     },
     ar: {
@@ -78,6 +79,7 @@ const messages = {
         viewmore: "عرض المزيد",
         knowmore: "اعرف المزيد",
         WhatWeDo: "ما نقوم به",
+        searchProduct:"ابحث عن المنتج",
         OurServicesincludes: "تشمل خدماتنا",
         clients: "ماذا يقول عملاؤنا",
         Features: "الميزات",
