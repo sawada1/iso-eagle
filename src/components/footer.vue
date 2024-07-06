@@ -5,10 +5,9 @@
                 <v-container>
                     <v-row>
                         <v-col cols="12" xl="4" lg="4">
-                            <div class="logo-container">
+                            <div v-if="general.footer" class="logo-container">
                                 <img src="../assets/images/logo.png" alt="logo" loading="lazy">
-                                <p> Phasellus ultricies aliquam volutpat ullamcorper laoreet neque, a lacinia curabitur
-                                    lacinia mollis </p>
+                                <p> {{ general.footer.brief }} </p>
                                 <div class="icons mt-7">
                                     <a v-if="general" :href="general.facebook_url" target="_blank" class="icon">
                                         <i class="fa-brands fa-facebook-f"></i>
@@ -60,15 +59,15 @@
                                 <div v-if="general" class="links">
                                     <div class="link">
 
-                                        <span> {{ general.address }} </span>
+                                        <span> {{ general.footer.address }} </span>
                                     </div>
                                     <div class="link">
                                         <i class="fa-regular fa-clock"></i>
-                                        <span> {{ $t('OpeningHours') }}: Mon - Sat: 10.00 AM - 4.00 PM </span>
+                                        <span> {{ $t('OpeningHours') }}: {{ general.footer.opening_hours }} </span>
                                     </div>
                                     <div class="link">
                                         <i class="fa-solid fa-phone"></i>
-                                        <span>{{ $t('PhoneCall') }}: {{ general.phone }} </span>
+                                        <span>{{ $t('PhoneCall') }}: {{ general.footer.phone }} </span>
                                     </div>
                                 </div>
                             </div>

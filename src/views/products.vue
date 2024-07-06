@@ -123,7 +123,7 @@ let sortActive = ref(0);
 let search = ref('');
 let lengthItems = ref(3);
 let paginate = ref(1);
-let pending = ref(false);
+let pending = ref(true);
 let dialog = ref();
 let total = ref();
 let per_page = ref();
@@ -132,6 +132,7 @@ let products = ref([]);
 let pendingBtn = ref(false);
 
 const getProducts = async()=>{
+    
     let result = await axios.get(`${getUrl()}/all-products`,{
         headers:{
             "Content-Language": `${locale.value}`

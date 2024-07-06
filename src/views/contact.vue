@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <h6> {{ $t('corp    ') }} </h6>
+                                        <h6> {{ $t('corp') }} </h6>
                                         <div class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-location-crosshairs"></i>
                                             <span> 
