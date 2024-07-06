@@ -1,7 +1,8 @@
 <template>
     <div style="min-height: 100vh;">
-        <div class="about-page">
-            <div class="background-container">
+        <div v-if="about" class="about-page">
+            <!-- about.about_us_page_background -->
+            <div class="background-container" :style="{ 'background-image': 'url(' + about.about_us_page_background + ')' }">
                 <div class="text">
                     <div class="head-text">
                         <span> {{ $t('home') }} </span>
@@ -9,11 +10,7 @@
                         <span> {{ $t('about') }} </span>
                     </div>
                     <h3> {{ $t('AboutISOEagle') }} </h3>
-                    <p class="mb-10 mt-10">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                        nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat.</p>
+                    <div v-html="about.about_us_text" class=" mt-10"></div>    
                 </div>
             </div>
             <v-container>
@@ -22,27 +19,17 @@
                         <h3> {{ $t('Ourvision') }} </h3>
 
                     </div>
-                    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut
-                        laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                        tation
-                        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-                        dolor in hendrerit . </p>
+                    <p> {{ about.our_vision }} </p>
                 </div>
                 <div class="our-div mt-16">
                     <div class="d-flex justify-content-center">
                         <h3> {{ $t('Oursectors') }} </h3>
 
                     </div>
-                    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut
-                        laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                        tation
-                        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-                        dolor in hendrerit . </p>
+                    <p> {{ about.our_sectors }} </p>
                 </div>
 
-                <div class="text-container">
+                <!-- <div class="text-container">
                     <v-row class="">
                         <v-col class="d-flex justify-content-center" v-for="i in 30" cols="12" xl="4" lg="4" md="6">
                             <div class="item">
@@ -51,16 +38,41 @@
                             </div>
                         </v-col>
                     </v-row>
-                </div>
+                </div> -->
 
             </v-container>
         </div>
+        <loader v-if="pending" />
 
     </div>
 </template>
 
 <script setup>
+import { computed, ref , watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import axios from 'axios';
+import {getUrl} from '../composables/url.js';
+import loader from '../components/loader.vue';
+const { locale, setLocale, localePath } = useI18n();
+let pending = ref(false);
+let about = ref();
+const getAbout = async()=>{
+  pending.value = true;
+  let result = await axios.get(`${getUrl()}/general`,{
+    headers:{
+      "Content-Language": `${locale.value}`,
+    }
+  });
+  if(result.status == 200){
+    pending.value = false;
+    about.value = result.data.data;
+  }
+}
+getAbout();
 
+watch(()=> locale.value , (lang)=>{
+    getGeneral();
+})
 </script>
 
 <style lang="scss" scoped>

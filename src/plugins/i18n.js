@@ -23,6 +23,7 @@ const messages = {
       terms:"Terms & Condition",
       policy:"Privacy Policy",
       viewmore:"view more",
+      close:"close",
       knowmore:"know more",
       WhatWeDo :"What We Do ",
       OurServicesincludes:"Our Services includes",
@@ -51,7 +52,9 @@ const messages = {
       Trending:"Trending",
       best:"The Best Service We Offer",
       ForYou:"For You",
-      searchProduct: "search for product"
+      policy:"Privacy Policy",
+      searchProduct: "search for product",
+      terms:"Terms & Condition"
 
     },
     ar: {
@@ -64,14 +67,17 @@ const messages = {
         videos: "الفيديوهات",
         contact: "اتصل بنا",
         search: "بحث",
+        policy:"سياسة الخصوصية",
         QuickLink: "رابط سريع",
         AboutISOEagle: "عن ISO Eagle",
         OurServices: "خدماتنا",
         OurProducts: "منتجاتنا",
         ReviewClients: "مراجعة العملاء",
         ContactUs: "اتصل بنا",
+        terms:"الشروط و الاحكام",
         brands: "العلامات التجارية",
         OpeningHours: "ساعات العمل",
+        close:"أغلق",
         PhoneCall: "مكالمة هاتفية",
         foot: "حقوق الطبع والنشر © جميع الحقوق محفوظة. مدعوم من",
         terms: "الشروط والأحكام",

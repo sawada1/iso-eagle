@@ -1,8 +1,9 @@
 
+.rtl{
+    @import '../rtl/main-rtl.scss';
+}
+.ltr{
+    @import './mainStyle.scss';
+}
 
-@import './base.scss';
-@import './layout.scss';
-@import './swiper.scss';
-@import './sections.scss';
-@import './mobile.scss';
 

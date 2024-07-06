@@ -45,6 +45,16 @@ const router = createRouter({
       component: () => import('../views/brands.vue')
     },
     {
+      path: '/policy',
+      name: 'policy',
+      component: () => import('../views/policy.vue')
+    },
+    {
+      path: '/terms',
+      name: 'terms',
+      component: () => import('../views/terms.vue')
+    },
+    {
       path: '/product/:id',
       name: 'product',
       props:true,

@@ -79,8 +79,12 @@
                         class="foot d-flex align-items-center text-center flex-column flex-xl-row flex-lg-row  justify-content-between">
                         <p> {{ $t('foot') }} ISO Eagle </p>
                         <div class="d-flex align-items-center gap-4">
-                            <span class="active"> {{ $t('terms') }} </span>
-                            <span class=""> {{ $t('policy') }} </span>
+                            <router-link to="/terms">
+                                <span class="active"> {{ $t('terms') }} </span>
+                            </router-link>
+                            <router-link to="/policy">
+                                <span class=""> {{ $t('policy') }} </span>
+                            </router-link>
                         </div>
                     </div>
                 </v-container>

@@ -15,14 +15,14 @@
             <RouterLink @click="navActive = !navActive" to="/products">{{ $t('products') }}</RouterLink>
             <RouterLink @click="navActive = !navActive" to="/videos">{{ $t('videos') }}</RouterLink>
             <RouterLink @click="navActive = !navActive" to="/contact">{{ $t('contact') }}</RouterLink>
-            <div class="search-container">
+            <!-- <div class="search-container">
               <i v-if="!searchActive" @click="searchActive = !searchActive" class="fa-solid fa-magnifying-glass"></i>
               <i v-if="searchActive" @click="searchActive = !searchActive" class="fa-solid fa-xmark"></i>
               <div class="search-input" :class="{ 'active': searchActive }">
                 <input type="text" :placeholder="$t('search')">
                 <i class="fa-solid fa-magnifying-glass"></i>
               </div>
-            </div>
+            </div> -->
             <div class="lang">
               <select v-model="locale" name="" id="" @change="changeLang">
                 <option value="en">{{ $t('english') }}</option>
@@ -56,30 +56,47 @@
 
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
-import { ref , onMounted , computed } from 'vue'
+import { ref , onMounted , computed , watch } from 'vue'
 import { useI18n } from 'vue-i18n';
 const { locale, setLocale, localePath } = useI18n();
 let props = defineProps(["general"]);
-const changeLang = async () => {
-  const cssPath = locale.value === 'ar' ? './src/assets/rtl/main-rtl.scss' : './src/assets/styles/main.scss';
-      // const cssLink = document.createElement('link');
-      // cssLink.rel = 'stylesheet';
-      // cssLink.href = cssPath;
-      let mainStyle = document.getElementById('styleid');
-      if (mainStyle) {
-        mainStyle.setAttribute("href", cssPath);
-      }
-      if (locale.value === "ar") {
-        document.documentElement.lang = "ar";
-        document.documentElement.dir = "rtl";
-    } else {
-        document.documentElement.lang = "en";
-        document.documentElement.dir = "ltr";
-    }
+  const changeLang = async () => {
+    const cssPath = locale.value === 'ar' ? './src/assets/rtl/main-rtl.scss' : './src/assets/styles/main.scss';
+        // const cssLink = document.createElement('link');
+        // cssLink.rel = 'stylesheet';
+        // cssLink.href = cssPath;
+        let mainStyle = document.getElementById('styleid');
+        if (mainStyle) {
+          mainStyle.setAttribute("href", cssPath);
+        }
+        if (locale.value === "ar") {
+          document.documentElement.lang = "ar";
+          document.documentElement.dir = "rtl";
+          document.body.classList.add('rtl');
+          document.body.classList.remove('ltr');
+      } else {
+          document.documentElement.lang = "en";
+          document.body.classList.add('ltr');
+      document.body.classList.remove('rtl');
+          document.documentElement.dir = "ltr";
+      }
 
-};
+  };
 let searchActive = ref(false);
 let navActive = ref(false);
+watch(locale, (newLocale) => {
+  if (newLocale === 'ar') {
+    document.body.classList.add('rtl');
+    document.body.classList.remove('ltr');
+    document.documentElement.lang = 'ar';
+    document.documentElement.dir = 'rtl';
+  } else {
+    document.body.classList.add('ltr');
+    document.body.classList.remove('rtl');
+    document.documentElement.lang = 'en';
+    document.documentElement.dir = 'ltr';
+  }
+});
 </script>
 
 <style lang="scss">

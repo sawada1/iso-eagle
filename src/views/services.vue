@@ -195,7 +195,7 @@ import axios from 'axios';
 import loader from '@/components/loader.vue';
 import {getUrl} from '../composables/url.js';
 const { locale, setLocale, localePath } = useI18n();
-import {ref} from 'vue';
+import {ref , watch} from 'vue';
 let services = ref();
 let pending = ref(false);
 const getGeneral = async()=>{
@@ -211,6 +211,10 @@ const getGeneral = async()=>{
   }
 }
 getGeneral();
+
+watch(()=> locale.value , (lang)=>{
+    getGeneral();
+})
 </script>
 
 <style lang="scss" scoped>

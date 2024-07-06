@@ -1,6 +1,9 @@
 <template>
     <div>
-        <swiper dir="ltr" :pagination="{
+        <swiper dir="ltr" :autoplay="{
+      delay: 2000,
+      disableOnInteraction: false,
+    }" :pagination="{
           clickable: true,
         }" :modules="modules" class="mySwiper">
           <swiper-slide>
@@ -30,7 +33,7 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
-import { Pagination, FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
@@ -46,5 +49,5 @@ const setThumbsSwiper = (swiper) => {
   thumbsSwiper.value = swiper;
 };
 
-let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
+let modules = ref([Pagination, Autoplay]);
 </script>

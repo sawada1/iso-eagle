@@ -173,10 +173,13 @@ const sendContact = async()=>{
             });
             if(result.status >= 200){
                 pendingBtn.value = false;
-                errors.value = undefined;
+                errors.value = [];
+                for(const key in contactObj.value){
+                     contactObj.value[key] = '';
+                }
                 toast.success(locale.value == 'ar' ? 'تم التواصل بنجاح' : 'Communication was successful', {
                     position: "top-right",
-                    timeout: 5000,
+                    timeout: 2000,
                     closeOnClick: true,
                     pauseOnFocusLoss: true,
                     pauseOnHover: true,

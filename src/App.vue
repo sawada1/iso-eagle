@@ -1,16 +1,16 @@
 <script setup>
 import axios from 'axios';
 import { RouterLink, RouterView } from 'vue-router';
-import { ref, onMounted , onBeforeMount , computed} from 'vue';
+import { ref, onMounted , onBeforeMount , computed , watchEffect} from 'vue';
 import navbar from './components/navbar.vue';
 import Footer from './components/footer.vue';
 import network from './components/network.vue';
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
 import { Vue3Lottie } from "vue3-lottie";
-
 import {getUrl} from './composables/url.js';
 let general = ref();
+const direction = ref('rtl');
 const getGeneral = async()=>{
   let result = await axios.get(`${getUrl()}/general`,{
     headers:{
@@ -49,7 +49,7 @@ const upToPage = () => {
 </script>
 
 <template>
-  <div>
+  <div :class="locale == 'ar' ? 'rtl' : 'ltr'">
     <navbar :general="general" />
     <div @click="upToPage()" class="up-page" :class="{ 'active': upActive }">
       <img src="./assets/images/up.svg" alt="">
@@ -63,7 +63,12 @@ const upToPage = () => {
 </template>
 
 <style lang="scss">
-
+//  .rtl{
+//   @import './assets/rtl/main-rtl.scss';
+// }
+// .ltr{
+//    @import './assets/styles/main.scss';
+//  }
 html[dir="rtl"] .v-container{
   direction: rtl !important;
 }

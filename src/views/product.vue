@@ -12,16 +12,19 @@
                 </div>
             </div>
             <v-container>
-                <div class="slider-container">
+                <div class="slider-container mt-10">
                     <h3> {{ product.name }} </h3>
                     <v-row>
                         <v-col cols="12" xl="6" lg="6">
                             <div class="image h-100">
                                 <!-- <img src="../assets/images/slide-product.png" alt=""> -->
-                                <swiper dir="ltr" :pagination="{
+                                <swiper dir="ltr" :autoplay="{
+      delay: 2000,
+      disableOnInteraction: false,
+    }" :pagination="{
           clickable: true,
         }" :modules="modules" class="mySwiper h-100">
-          <swiper-slide v-for="image in product.images">
+          <swiper-slide  v-for="image in product.images">
             <img :src="image.image" alt="hero1" loading="lazy">
           </swiper-slide>
        
@@ -30,9 +33,9 @@
                         </v-col>
                         <v-col cols="12" xl="6" lg="6">
                             <div class="text-container">
-                                <div v-for="i in 8" class="item">
-                                    <img src="../assets/images/shape.svg" alt="">
-                                    <h6> Smoke & Heat detector With (Common, Deep, Isolator and Stand-alone Bases).
+                                <div v-for="item in product.features" class="item">
+                                    <img src="../assets/images/shape.svg" class="arrow-rtl" alt="">
+                                    <h6> {{ item.name }}
                                     </h6>
                                 </div>
                             </div>
@@ -46,9 +49,10 @@
                     <p> {{ product.description }} </p>
                     <!-- <img src="../assets/images/img-product1.png" alt=""> -->
                     <img :src="product.structure_image" alt="">
+                    <img :src="product.panel_image" alt="">
                 </div>
 
-                <div class="features">
+                <!-- <div class="features">
                     <h4 class="text-center mb-8"> {{ $t('Features') }} </h4>
                     <v-row>
                         <v-col v-for="item in product.features" cols="12" xl="4" lg="4" md="4">
@@ -58,7 +62,7 @@
                             </div>
                         </v-col>
                     </v-row>
-                </div>
+                </div> -->
 
                 <!-- <div class="system-container mt-16">
                     <div class="title">
@@ -95,7 +99,7 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles
-import { Pagination, FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Pagination, FreeMode, Navigation, Thumbs , Autoplay } from 'swiper/modules';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
@@ -112,7 +116,7 @@ let props = defineProps(["id"]);
 let search = ref('');
 let pending = ref(true);
 let product = ref([]);
-let modules = ref([Pagination, FreeMode, Navigation, Thumbs]);
+let modules = ref([Pagination, Autoplay]);
 
 const getProduct = async()=>{
     let result = await axios.get(`${getUrl()}/products/${props.id}`,{
