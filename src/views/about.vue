@@ -71,7 +71,7 @@ const getAbout = async()=>{
 getAbout();
 
 watch(()=> locale.value , (lang)=>{
-    getGeneral();
+    getAbout();
 })
 </script>
 

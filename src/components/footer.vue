@@ -5,7 +5,7 @@
                 <v-container>
                     <v-row>
                         <v-col cols="12" xl="4" lg="4">
-                            <div v-if="general.footer" class="logo-container">
+                            <div v-if="general" class="logo-container">
                                 <img src="../assets/images/logo.png" alt="logo" loading="lazy">
                                 <p> {{ general.footer.brief }} </p>
                                 <div class="icons mt-7">
@@ -25,27 +25,27 @@
                             <div class="links-container">
                                 <h5>{{ $t('QuickLink') }}</h5>
                                 <div class="links">
-                                    <router-link to="/about" class="link">
+                                    <router-link @click="upScreen()" to="/about" class="link">
                                         <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
                                             loading="lazy">
                                         <span> {{ $t('AboutISOEagle') }} </span>
                                     </router-link>
-                                    <router-link to="/services" class="link">
+                                    <router-link @click="upScreen()" to="/services" class="link">
                                         <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
                                             loading="lazy">
                                         <span> {{ $t('OurServices') }} </span>
                                     </router-link>
-                                    <router-link to="products" class="link">
+                                    <router-link @click="upScreen()" to="products" class="link">
                                         <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
                                             loading="lazy">
                                         <span>{{ $t('OurProducts') }}</span>
                                     </router-link>
-                                    <router-link to="videos" class="link">
+                                    <router-link @click="upScreen()" to="videos" class="link">
                                         <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
                                             loading="lazy">
                                         <span> {{ $t('videos') }} </span>
                                     </router-link>
-                                    <router-link to="/contact" class="link">
+                                    <router-link @click="upScreen()" to="/contact" class="link">
                                         <img src="../assets/images/arrow2.svg" class="arrow-rtl" alt="arrow"
                                             loading="lazy">
                                         <span> {{ $t('ReviewClients') }} </span>
@@ -78,10 +78,10 @@
                         class="foot d-flex align-items-center text-center flex-column flex-xl-row flex-lg-row  justify-content-between">
                         <p> {{ $t('foot') }} ISO Eagle </p>
                         <div class="d-flex align-items-center gap-4">
-                            <router-link to="/terms">
+                            <router-link @click="upScreen()" to="/terms">
                                 <span class="active"> {{ $t('terms') }} </span>
                             </router-link>
-                            <router-link to="/policy">
+                            <router-link @click="upScreen()" to="/policy">
                                 <span class=""> {{ $t('policy') }} </span>
                             </router-link>
                         </div>
@@ -94,7 +94,12 @@
 
 <script setup>
 let props = defineProps(["general"]);
-
+const upScreen = ()=>{
+    window.scrollTo({
+    top: 0,
+    behavior:'smooth'
+  })
+  }
 
 </script>
 

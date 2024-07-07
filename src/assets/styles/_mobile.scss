@@ -50,7 +50,7 @@
             align-items: center;
         }
         .links-container {
-            // text-align: center;
+            text-align: center;
             h5 {
                 font-size: 18px;
             }
@@ -59,14 +59,19 @@
                 gap: 18px;
                 .link {
                     font-size: 14px;
+                    text-align: center;
+                    justify-content: center;
+                
                 }
             }
             &.contact {
+                text-align: center;
                 h5{
                     margin-bottom: 10px;
                 }
                 .links {
                     gap: 15px;
+                    
                 }
             }
         }

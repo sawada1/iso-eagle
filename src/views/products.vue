@@ -49,7 +49,8 @@
                                     <input type="text" v-model="search" :placeholder="$t('searchProduct')">
                                     <div class="line">
                                     </div>
-                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                                     <img src="../assets/images/search.svg" alt="">
                                 </div>
 
                             </div>
@@ -57,7 +58,7 @@
                             <div class="products-cards mt-10">
                                 <v-row v-if="!pendingBtn">
                                     <v-col v-for="item , index in filterdProducts" cols="12" xl="4" lg="4">
-                                        <router-link :to="{ name:'product' , params:{id: item.id}}">
+                                        <router-link @click="upScreen()" :to="{ name:'product' , params:{id: item.id}}">
                                             <div class="product-card">
                                                 <div class="image">
                                                     <img :src="item.images[0].image" alt="">
@@ -189,7 +190,12 @@ const filterdProducts = computed(() => {
     });
 });
 
-
+const upScreen = ()=>{
+    window.scrollTo({
+    top: 0,
+    behavior:'smooth'
+  })
+  }
 
 watch(()=> locale.value , (lang)=>{
     getProducts();

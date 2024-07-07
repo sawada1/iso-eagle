@@ -4,17 +4,17 @@
     <header class="navbar-container">
       <v-container class="">
         <div class="main-nav">
-         <RouterLink to="/">
+         <RouterLink @click="upScreen()" to="/">
           <img src="../assets/images/nav-logo.png" alt="">
          </RouterLink>
           <nav class="mob" :class="{ 'active': navActive }">
             <i @click="navActive = !navActive" class="fa-solid fa-xmark close-icon"></i>
-            <RouterLink @click="navActive = !navActive" to="/">{{ $t('home') }}</RouterLink>
-            <RouterLink @click="navActive = !navActive" to="/about">{{ $t('about') }}</RouterLink>
-            <RouterLink @click="navActive = !navActive" to="/services">{{ $t('services') }}</RouterLink>
-            <RouterLink @click="navActive = !navActive" to="/products">{{ $t('products') }}</RouterLink>
-            <RouterLink @click="navActive = !navActive" to="/videos">{{ $t('videos') }}</RouterLink>
-            <RouterLink @click="navActive = !navActive" to="/contact">{{ $t('contact') }}</RouterLink>
+            <RouterLink @click="navActive = !navActive , upScreen()" to="/">{{ $t('home') }}</RouterLink>
+            <RouterLink @click="navActive = !navActive , upScreen()" to="/about">{{ $t('about') }}</RouterLink>
+            <RouterLink @click="navActive = !navActive , upScreen()" to="/services">{{ $t('services') }}</RouterLink>
+            <RouterLink @click="navActive = !navActive , upScreen()" to="/products">{{ $t('products') }}</RouterLink>
+            <RouterLink @click="navActive = !navActive , upScreen()" to="/videos">{{ $t('videos') }}</RouterLink>
+            <RouterLink @click="navActive = !navActive , upScreen()" to="/contact">{{ $t('contact') }}</RouterLink>
             <!-- <div class="search-container">
               <i v-if="!searchActive" @click="searchActive = !searchActive" class="fa-solid fa-magnifying-glass"></i>
               <i v-if="searchActive" @click="searchActive = !searchActive" class="fa-solid fa-xmark"></i>
@@ -82,6 +82,15 @@ let props = defineProps(["general"]);
       }
 
   };
+
+ 
+  const upScreen = ()=>{
+    window.scrollTo({
+    top: 0,
+    behavior:'smooth'
+  })
+  }
+
 let searchActive = ref(false);
 let navActive = ref(false);
 watch(locale, (newLocale) => {

@@ -26,7 +26,12 @@ const getGeneral = async()=>{
 }
 getGeneral();
 
-
+const upScreen = ()=>{
+    window.scrollTo({
+    top: 0,
+    behavior:'smooth'
+  })
+  }
 const openDialog = (index) => {
   dialog.value[index] = true;
 };
@@ -71,7 +76,7 @@ html[dir="ltr"] .swiper{
               </v-col>
             </v-row>
             <div class="d-flex align-items-center justify-content-center">
-            <router-link to="/brands">
+            <router-link @click="upScreen()" to="/brands">
               <button class="Btn mt-16"> {{ $t('viewmore') }} </button>
             </router-link>
             </div>
@@ -97,7 +102,7 @@ html[dir="ltr"] .swiper{
               <div v-html="general.about_us.description"></div>
             </div>
             <div class="">
-            <router-link to="/about">
+            <router-link @click="upScreen()" to="/about">
               <button class="Btn"> {{ $t('knowmore') }} </button>
             </router-link>
             </div>
@@ -132,7 +137,7 @@ html[dir="ltr"] .swiper{
                     <img src="../assets/images/icon3.svg" alt="service1" loading="lazy">
                     <span> Freight & Clearance </span>
                   </div> -->
-                  <router-link to="/services">
+                  <router-link @click="upScreen()" to="/services">
                   <button class="Btn primary"> {{ $t('knowmore') }} </button>
                   </router-link>
                 </div>
@@ -195,7 +200,7 @@ html[dir="ltr"] .swiper{
     
             </v-row>
             <div class="d-flex align-items-center justify-content-center">
-            <router-link to="/videos">
+            <router-link @click="upScreen()" to="/videos">
               <button class="Btn mt-16"> {{$t('viewmore')}} </button>
             </router-link>
             </div>
