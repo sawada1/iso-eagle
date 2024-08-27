@@ -219,6 +219,7 @@ footer .foot p.active, footer .foot span.active {
 
 .brands-container img {
   width: 165px;
+  height: 160px;
   object-fit: cover;
 }
 
@@ -259,6 +260,7 @@ footer .foot p.active, footer .foot span.active {
 
 .what-we-do-container {
   height: 600px;
+  direction: rtl;
 }
 .what-we-do-container .img-container {
   background-color: #FFDD00;
@@ -320,9 +322,9 @@ footer .foot p.active, footer .foot span.active {
   gap: 15px;
 }
 .what-we-do-container .services .service img {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
+  width: 60px;
+  height: 50px;
+  object-fit: cover;
 }
 .what-we-do-container .services .service span {
   color: #fff;
@@ -354,8 +356,9 @@ footer .foot p.active, footer .foot span.active {
 }
 .products-home .box.product img,
 .videos-home .box.product img {
-  width: 60px;
-  object-fit: contain;
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
 }
 .products-home .box.video,
 .videos-home .box.video {
@@ -756,6 +759,16 @@ footer .foot p.active, footer .foot span.active {
   font-weight: 700;
   color: #393939;
   margin-bottom: 20px;
+}
+.product-page .slider-container .image {
+  width: 100%;
+}
+.product-page .slider-container .image .swiper-slide {
+  height: 543px;
+}
+.product-page .slider-container .image .swiper-slide img {
+  height: 100%;
+  object-fit: cover;
 }
 .product-page .slider-container .text-container {
   display: flex;
@@ -1184,6 +1197,9 @@ footer .foot p.active, footer .foot span.active {
   footer .logo-container {
     align-items: center;
   }
+  footer .links-container {
+    text-align: center;
+  }
   footer .links-container h5 {
     font-size: 18px;
   }
@@ -1192,6 +1208,11 @@ footer .foot p.active, footer .foot span.active {
   }
   footer .links-container .links .link {
     font-size: 14px;
+    text-align: center;
+    justify-content: center;
+  }
+  footer .links-container.contact {
+    text-align: center;
   }
   footer .links-container.contact h5 {
     margin-bottom: 10px;
