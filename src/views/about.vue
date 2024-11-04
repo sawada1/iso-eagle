@@ -10,7 +10,7 @@
                         <span> {{ $t('about') }} </span>
                     </div>
                     <h3> {{ $t('AboutISOEagle') }} </h3>
-                    <div v-html="about.about_us_text" class=" mt-10"></div>    
+                    <div v-html="about.about_us_text" class=" mt-10 text-html"></div>    
                 </div>
             </div>
             <v-container>
@@ -75,7 +75,25 @@ watch(()=> locale.value , (lang)=>{
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.about-page{
+  .text-html{
+    padding: 0px 10px;
+    *{
+        padding: 0px !important;
+    }
+  }
+}
 
+@media(max-width:800px){
+    .about-page{
+        .text-html{
+            margin-top: 0px !important;
+        }
+        h3 , h2{
+            font-size: 22px !important;
+        }
+    }
+}
 
 </style>

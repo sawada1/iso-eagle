@@ -109,5 +109,9 @@ watch(locale, (newLocale) => {
 </script>
 
 <style lang="scss">
-    
+    .navbar-container{
+      a , select{
+        text-transform: capitalize;
+      }
+    }
 </style>

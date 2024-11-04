@@ -1,10 +1,11 @@
 <script setup>
 import axios from 'axios';
 import { RouterLink, RouterView } from 'vue-router';
-import { ref, onMounted , onBeforeMount , computed , watchEffect} from 'vue';
+import { ref, onMounted , onBeforeMount , computed , watch , watchEffect} from 'vue';
 import navbar from './components/navbar.vue';
 import Footer from './components/footer.vue';
 import network from './components/network.vue';
+import whatsapp from "./assets/animations/whatsapp.json";
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n();
 import { Vue3Lottie } from "vue3-lottie";
@@ -23,7 +24,9 @@ const getGeneral = async()=>{
 }
 getGeneral();
 let upActive = ref(false);
-
+watch(()=> locale.value , (lang)=>{
+  getGeneral();
+})
 window.addEventListener("scroll", function () {
   if (this.scrollY >= 1000) {
     upActive.value = true;
@@ -55,6 +58,10 @@ const upToPage = () => {
       <img src="./assets/images/up.svg" alt="">
     </div>
     <RouterView />
+    <a :href="`https://api.whatsapp.com/send?phone=${general?.footer?.phone}`" :class="{ 'active': upActive }" target="_blank" class="whats-icon">
+      <Vue3Lottie :animation-data="whatsapp" :height="60" :width="60" />
+
+    </a>
     <Footer :general="general" />
     <network v-if="checkInt" />
 
@@ -69,6 +76,18 @@ const upToPage = () => {
 // .ltr{
 //    @import './assets/styles/main.scss';
 //  }
+
+.whats-icon{
+  position: fixed;
+  z-index: 555555;
+  bottom: 25px;
+  left: 30px;
+  transition: 0.5s all;
+    transform: translateX(-300px);
+    &.active{
+        transform: translateX(0);
+    }
+}
 
 .v-overlay-container{
     iframe{
